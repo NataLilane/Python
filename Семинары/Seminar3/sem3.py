@@ -117,7 +117,8 @@ if b == 'rus':
                 sum = sum + k
 print(sum, 'очков')
 
-'''
+
+# Вар.2
 еng = {1: 'A E I O U L N S T R ',
        2: 'D G ',
        3: 'B C M P ',
@@ -147,6 +148,8 @@ for i in a:
                 count = count + 1
 print(count)
 
+'''
+тест-тест- тест
 
 
 
