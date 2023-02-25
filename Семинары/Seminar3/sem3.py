@@ -149,7 +149,16 @@ for i in a:
 print(count)
 
 '''
-тест-тест- тест
+
+
+
+def sum_str(*args):
+    res = ''
+    for i in args:
+        res += 1
+        return res
+
+print(sum_str('q', 'w', 'r'))
 
 
 
