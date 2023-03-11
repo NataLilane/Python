@@ -1,11 +1,11 @@
 
 
-
 # Phone_book
 
 print(' 1. Открыть файл\n 2. Сохранить файл\n 3. Показать все контакты\n 4. Создать контакт\n 5. Изменить контакт\n 6. Найти контакт\n 7. Удалить контакт\n 8. Выход')
-path = 'справочник.txt'
+path = 'Семинары\Seminar8\справочник.txt'
 phone_book = []
+new_file = []
 
 def open_file(path):
     with open(path, 'r', encoding='UTF-8') as file:
@@ -39,16 +39,20 @@ def edit_contact():
     show_contacts(phone_book)
     num_con = int(input('Введите номер контакта, который необходимо изменить: '))
     old_con = phone_book[num_con - 1]
-    print(old_con)
+    print('; '.join(str(i) for i in old_con))
+    
     phone_book.pop(num_con - 1)
     name = input('Введите новое имя: ')
     phone = input('Введите новый телефон: ')
     comment = input('Введите новый комементарий: ')
     phone_book.insert((num_con - 1), (list([name, phone, comment])))
-    print(phone_book[num_con - 1])
+    show_contacts(phone_book)
 
-#def save_file:
-    new_file = []
+
+# def save_file(path, data):
+#         file = open(path, 'w', encoding='UTF-8')
+#         file.write(data)
+#         file.close()
 
 
 
@@ -56,14 +60,12 @@ def edit_contact():
 def delete_contact():
     num_con = int(input('Введите номер контакта, который необходимо удалить: '))
     old_con = phone_book[num_con - 1]
-    print(old_con)
-    #phone_book.pop(num_con - 1)
-
+    string = old_con
+    print('; ' .join(str(i) for i in old_con))
     a = input('Удалить?   ')
     if a == 'да':
         phone_book.pop(num_con - 1)
-        print(phone_book)
-
+        new_file.append(show_contacts(phone_book))
 
 
 
@@ -75,8 +77,8 @@ while True:
             open_file(path)
             print('Файл успешно загружен')
         # case 2:
-        # save_file()
-
+        #     save_file(path)
+            print('Изменения сохранены')
         case 3:
             show_contacts(phone_book)
         case 4:
@@ -90,12 +92,6 @@ while True:
         case 8:
             break
 print('До встречи!')
-
-
-
-
-
-
 
 
 
