@@ -21,6 +21,7 @@ def show_contacts(phone_book):
     for i, contact in enumerate(phone_book, 1):
         print(f'{i}. {contact[0]:<20}{contact[1]:<20}{contact[2]:<15}')
 
+
 def search_contact(phone_book):
     search = input('Введите ключевой элемент: ')
     for contact in phone_book:
@@ -66,6 +67,9 @@ def delete_contact():
     if a == 'да':
         phone_book.pop(num_con - 1)
         new_file.append(show_contacts(phone_book))
+        print(new_file)
+    #print(' '.join(new_file))  
+    #save_file(path, ' '.join(new_file))
 
 
 
@@ -77,8 +81,8 @@ while True:
             open_file(path)
             print('Файл успешно загружен')
         # case 2:
-        #     save_file(path)
-            print('Изменения сохранены')
+        #     save_file(path, data)
+        #    print('Изменения сохранены')
         case 3:
             show_contacts(phone_book)
         case 4:
