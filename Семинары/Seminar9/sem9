@@ -29,3 +29,36 @@ async def com_choice(message: Message):
 
 
 executor.start_polling(dp, skip_updates=True, on_startup=on_start)
+
+
+
+
+
+from aiogram import Bot, Dispatcher
+from aiogram.utils import executor
+from aiogram.types import Message
+
+
+bot_gb = Bot('5672966782:AAHQmA-djxU_BmFE4JnKBtX_QfI6GiDtTX4')
+dp = Dispatcher(bot_gb)
+
+async def on_start(_):
+    print('Бот запущен')
+
+@dp.message_handler(commands = ['start'])
+async def com_start(message: Message):
+    await message.reply('Привет!!!! Я могу дать тебе ссылки на прогноз погоды в Москве или Санкт-Петербурге. Если интересно, нажми /begin')
+
+@dp.message_handler(commands = ['begin'])
+async def com_choice(message: Message):
+    await message.answer('Если тебе нужна Москва, введи 1, если Питер, введи 2')
+
+@dp.message_handler()
+async def com_choice(message: Message):
+    if message.text.lower() == '1':
+        await message.answer('https://www.gismeteo.ru/weather-moscow-4368/')
+    elif message.text.lower() == '2':
+        await message.answer('https://www.gismeteo.ru/weather-sankt-peterburg-4079/')
+
+
+executor.start_polling(dp, skip_updates=True, on_startup=on_start)
